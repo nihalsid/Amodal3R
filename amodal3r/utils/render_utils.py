@@ -99,12 +99,11 @@ def render_video(sample, resolution=512, bg_color=(0, 0, 0), num_frames=300, r=2
 def render_multiview(sample, resolution=512, nviews=30, bg_color=(0, 0, 0)):
     r = 2
     fov = 40
-    cams = [sphere_hammersley_sequence(i, nviews) for i in range(nviews)]
-    yaws = [cam[0] for cam in cams]
-    pitchs = [cam[1] for cam in cams]
+    yaws = [0/180*np.pi, 45/180*np.pi, 90/180*np.pi, 135/180*np.pi, 180/180*np.pi, 225/180*np.pi, 270/180*np.pi, 315/180*np.pi]
+    pitchs = [30/180*np.pi for _ in range(nviews)]
     extrinsics, intrinsics = yaw_pitch_r_fov_to_extrinsics_intrinsics(yaws, pitchs, r, fov)
     res = render_frames(sample, extrinsics, intrinsics, {'resolution': resolution, 'bg_color': bg_color})
-    return res['color'], extrinsics, intrinsics
+    return res, extrinsics, intrinsics
 
 
 def render_snapshot(samples, resolution=512, bg_color=(0, 0, 0), offset=(-16 / 180 * np.pi, 20 / 180 * np.pi), r=10, fov=8, **kwargs):

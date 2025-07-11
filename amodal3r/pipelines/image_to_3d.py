@@ -103,8 +103,8 @@ class Amodal3RImageTo3DPipeline(Pipeline):
         self.image_cond_model_transform = transform
     
     def preprocess_image_w_mask(self, input, mask, kernel_size=3):
-        image = input.astype(np.float32) / 255
-        mask_ori = mask.astype(np.float32)
+        image = np.array(input).astype(np.float32) / 255
+        mask_ori = np.array(mask).astype(np.float32)
         mask = (mask_ori < 127).astype(np.uint8)
         if kernel_size > 0:
             kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (kernel_size, kernel_size))

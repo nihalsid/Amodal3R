@@ -16,6 +16,13 @@
   <div align="center"></div>
 </p>
 
+### Demo Video
+<div align="center">
+  <video width="800" controls>
+    <source src="asset/teaser.mp4" type="video/mp4">
+  </video>
+</div>
+
 ### Setup
 This code has been tested on Ubuntu 22.02 with torch 2.4.0 & CUDA 11.8. We sincerely thank [TRELLIS](https://github.com/Microsoft/TRELLIS) for providing the environment setup and follow exactly as their instruction in this work.
 
@@ -46,3 +53,21 @@ Options:
 We have provided our pretrained weights of both sparse structure module and SLAT module on [HuggingFace](https://huggingface.co/Sm0kyWu/Amodal3R).
 
 ### Training
+To train the sparse structure module with our designed mask-weighted cross-attention and occlusion-aware attention, please run:
+```sh
+. ./train_ss.sh
+```
+To train the sparse structure module with our designed mask-weighted cross-attention and occlusion-aware attention, please run:
+```sh
+. ./train_slat.sh
+```
+The output folder where the model will be saved can be changed by modifying ``--vis'' parameter in the script.
+
+
+### inference
+We have prepared examples under ./example folder. It supports both single and multiple image as input.
+If you want to try on you own data. You should prepare: 1) original image and 2) mask image (background is white (255,255,255), visible area is gray (188,188,188), occluded area is black (0,0,0)).
+You can use [Segment Anything](https://github.com/facebookresearch/segment-anything) to obtain the corresponding mask, which is used for our in-the-wild examples in the paper and also in our demo.
+
+
+
