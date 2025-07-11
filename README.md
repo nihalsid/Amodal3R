@@ -18,9 +18,14 @@
 
 ### Demo Video
 <div align="center">
-  <video width="800" controls>
-    <source src="asset/teaser.mp4" type="video/mp4">
-  </video>
+
+[📹 **点击观看演示视频**](asset/teaser.mp4)
+
+*注意：要在GitHub中直接播放视频，请：*
+1. *在GitHub网页上编辑这个README.md文件*
+2. *将asset/teaser.mp4文件直接拖拽到编辑器中*
+3. *GitHub会自动生成可播放的视频链接*
+
 </div>
 
 ### Setup
@@ -65,8 +70,13 @@ The output folder where the model will be saved can be changed by modifying ``--
 
 
 ### inference
-We have prepared examples under ./example folder. It supports both single and multiple image as input.
+We have prepared examples under ./example folder. It supports both single and multiple image as input. For inference, please run:
+```sh
+python ./inference.py
+```
+
 If you want to try on you own data. You should prepare: 1) original image and 2) mask image (background is white (255,255,255), visible area is gray (188,188,188), occluded area is black (0,0,0)).
+
 You can use [Segment Anything](https://github.com/facebookresearch/segment-anything) to obtain the corresponding mask, which is used for our in-the-wild examples in the paper and also in our demo.
 
 
