@@ -17,8 +17,11 @@
 </p>
 
 ### Demo Video
+<div align="center">
 
-<img src="asset/teaser.gif" width="100%" alt="Demo Video">
+![Demo Video](asset/teaser.gif)
+
+</div>
 
 ### Setup
 This code has been tested on Ubuntu 22.02 with torch 2.4.0 & CUDA 11.8. We sincerely thank [TRELLIS](https://github.com/Microsoft/TRELLIS) for providing the environment setup and follow exactly as their instruction in this work.
