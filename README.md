@@ -52,7 +52,17 @@ Options:
 ### Pretrained models
 We have provided our pretrained weights of both sparse structure module and SLAT module on [HuggingFace](https://huggingface.co/Sm0kyWu/Amodal3R).
 
+### Data Preprocessing
+
+#### Training Data
+We use three datasets for training: [ABO](https://amazon-berkeley-objects.s3.amazonaws.com/index.html), [3D-FUTURE](https://tianchi.aliyun.com/specials/promotion/alibaba-3d-future), and [HSSD](https://huggingface.co/datasets/hssd/hssd-models). To obtain the training data, please also refer to [TRELLIS](https://github.com/microsoft/TRELLIS/blob/main/DATASET.md). **Thanks to them for the amazing work!!!**. 
+
+When the data is ready, combine them and put under `./dataset/abo_3dfuture_hssd`. If you want to train on a single dataset, feel free to modify the dataloader. For training, rendering images, Sparse Structure and SLAT are required.
+
 ### Training
+
+To train you own model, you can start either on [our weights](https://huggingface.co/Sm0kyWu/Amodal3R) or [TRELLIS original weights](https://huggingface.co/microsoft/TRELLIS-image-large/tree/main). Please download the weights and put them under `./ckpts`.
+
 To train the sparse structure module with our designed mask-weighted cross-attention and occlusion-aware attention, please run:
 ```sh
 . ./train_ss.sh
@@ -61,7 +71,7 @@ To train the sparse structure module with our designed mask-weighted cross-atten
 ```sh
 . ./train_slat.sh
 ```
-The output folder where the model will be saved can be changed by modifying ``--vis'' parameter in the script.
+The output folder where the model will be saved can be changed by modifying `--vis` parameter in the script.
 
 
 ### inference
