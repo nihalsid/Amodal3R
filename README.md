@@ -74,7 +74,7 @@ To train the sparse structure module with our designed mask-weighted cross-atten
 The output folder where the model will be saved can be changed by modifying `--vis` parameter in the script.
 
 
-### inference
+### Inference
 We have prepared examples under ./example folder. It supports both single and multiple image as input. For inference, please run:
 ```sh
 python ./inference.py
@@ -83,6 +83,14 @@ python ./inference.py
 If you want to try on you own data. You should prepare: 1) original image and 2) mask image (background is white (255,255,255), visible area is gray (188,188,188), occluded area is black (0,0,0)).
 
 You can use [Segment Anything](https://github.com/facebookresearch/segment-anything) to obtain the corresponding mask, which is used for our in-the-wild examples in the paper and also in our demo.
+
+
+### Evalutation
+We render Toys4K and GSO exactly the same as training data. To obtain the evaluation dataset, please modify the directory in `3d_mask_render.py` and run:
+```sh
+python ./3d_mask_render.py
+```
+It will create a `renders_mask` folder with the 3D consistent mask in it.
 
 
 
