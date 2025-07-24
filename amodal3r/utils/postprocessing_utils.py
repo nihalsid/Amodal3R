@@ -441,6 +441,7 @@ def to_glb(
 
     # bake texture
     observations, extrinsics, intrinsics = render_multiview(app_rep, resolution=1024, nviews=100)
+    observations = observations['color']
     masks = [np.any(observation > 0, axis=-1) for observation in observations]
     extrinsics = [extrinsics[i].cpu().numpy() for i in range(len(extrinsics))]
     intrinsics = [intrinsics[i].cpu().numpy() for i in range(len(intrinsics))]
